@@ -30,24 +30,16 @@ fruits.slice(5)
 // Create another array named moreFruits with values ['Berries', 'Melons']
 let moreFruits=['Berries', 'Melons'];
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
-moreFruits=moreFruits.concat(fruits)
+fruits=fruits.concat(moreFruits)
 // Log the name of all fruit in console
-for(let fruit of moreFruits)
+for(let fruit of fruits)
 console.log(fruit)
 // Convert each fruit name to lowercase and log it
 moreFruits.forEach((fruit)=>console.log(fruit.toLowerCase()));
 // Convert all fruits name into lowercase and store in new array named lowercaseFruits
-let lowercaseFruits=[];
-function lowercase(log){
-    return log.toLowerCase();
-}
-lowercaseFruits=[...fruits].map(lowercase)
+let lowercaseFruits= fruits.map((fruit)=>fruit.toLowerCase)
 // Convert all fruits name into uppercase and store in new array named uppercaseFruits
-let uppercaseFruits=[];
-function uppercase(log){
-    return log.toUpperCase();
-}
-lowercaseFruits=[...fruits].map(uppercase)
+let uppercaseFruits= fruits.map((fruit)=>fruit.toUpperCase)
 
 
 
