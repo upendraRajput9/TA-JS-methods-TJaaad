@@ -67,24 +67,15 @@ var customers = [
   { firstname: 'Jack', lastname: 'White' },
 ];
 // - Find all customers whose firstname starts with 'J'
-let jlist=[];
-customers.forEach(function (val){
-  val.firstname.charAt(0)===`j` ? jlist.push(val):false;
-});
-console.log(jlist)
+let filterCustomer=customers.map((customer)=>customer.firstname.startwith(`j`))
 // - Create new array with all the full names (ex: "Joe Blogs")
-let fullName = [];
-customers.forEach(function (val) {
-  fullName.push(val.firstname + " " + val.lastname);
-});
-console.log(fullName);
-
+let filterCustomer=customers.map((customer)=>`${customers.firstname} ${customers.lastname}`)
 
 // - Sort the array created above alphabetically
 console.log(fullName.sort())
 // - Create a new array that contains only user who has at least one vowel in the firstname.
-let array = [];
-let isVowel = (val) => {
+
+let isVowel = customers.filter((customer) => {
   if (
     val.firstname.includes("a") ||
     val.firstname.includes("e") ||
@@ -92,8 +83,8 @@ let isVowel = (val) => {
     val.firstname.includes("o") ||
     val.firstname.includes("u")
   ) {
-   return array.push(val);
+   return true
+  }else{
+    return false
   }
-};
-customers.filter(isVowel);
-console.log(array);
+});
