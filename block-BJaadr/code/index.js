@@ -1,35 +1,101 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
-function countAllPeople() {
+function countAllPeople(acc,bcc) {
   // your code goes here
+ return got.houses.reduce((acc,cb)=>{
+   return acc + cb.people.length
+ },0)
 }
 
 function peopleByHouses() {
   // your code goes here
+  totalpeople = [];
+  got.houses.forEach((house)=>{
+    totalpeople[house.name] = house.people.reduce((acc,cd)=>{
+      return acc + 1
+    },0)
+  })
+  return totalpeople
 }
-
+ 
 function everyone() {
   // your code goes here
+  everyoneName = [];
+  got.houses.forEach((house)=>{
+    let everyoneInHouse = house.people.reduce((acc,cb)=>{
+      return acc.concat(cb.name)
+    },[]);
+everyoneName = everyoneName.concat(everyoneInHouse)
+  });
+  return everyoneName
 }
 
 function nameWithS() {
   // your code goes here
+  everyoneName = [];
+  got.houses.forEach((house)=>{
+    let everyoneInHouse = house.people.reduce((acc,cb)=>{
+      return acc.concat(cb.name)
+    },[]);
+everyoneName = everyoneName.concat(everyoneInHouse)
+  });
+  return everyoneName.filter((name)=>{
+    return name.toLowerCase()+name.includes("S")
+  })
 }
 
 function nameWithA() {
   // your code goes here
+  everyoneName = [];
+  got.houses.forEach((house)=>{
+    let everyoneInHouse = house.people.reduce((acc,cb)=>{
+      return acc.concat(cb.name)
+    },[]);
+everyoneName = everyoneName.concat(everyoneInHouse)
+  });
+  return everyoneName.filter((name)=>{
+    return name.toLowerCase()+name.includes("A")
+  })
 }
 
 function surnameWithS() {
   // your code goes here
+  everyoneName = [];
+  got.houses.forEach((house)=>{
+    let everyoneInHouse = house.people.reduce((acc,cb)=>{
+      return acc.concat(cb.name)
+    },[]);
+everyoneName = everyoneName.concat(everyoneInHouse)
+  });
+  return everyoneName.filter((name)=>{
+    return name.includes("S")
+  })
 }
 
 function surnameWithA() {
   // your code goes here
+  everyoneName = [];
+  got.houses.forEach((house)=>{
+    let everyoneInHouse = house.people.reduce((acc,cb)=>{
+      return acc.concat(cb.name)
+    },[]);
+everyoneName = everyoneName.concat(everyoneInHouse)
+  });
+  return everyoneName.filter((name)=>{
+    return name.includes("A")
+  })
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  let final = {};
+
+  got.houses.forEach((house) => {
+    final[house.name] = house.people.map((person) => {
+      return person.name;
+    });
+  });
+  return final;
 }
 
 // Testing your result after writing your function
