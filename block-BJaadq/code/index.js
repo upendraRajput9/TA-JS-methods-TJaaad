@@ -2,35 +2,80 @@
 
 function countAllPeople() {
   // your code goes here
+  let total = 0
+   got.houses.map((person)=>total=person.people.length+total)
+  return total
 }
 
 function peopleByHouses() {
   // your code goes here
+  let final={}
+ got.houses.map((house)=>{
+  final[house.name]=house.people.length
+})
+return final
 }
 
 function everyone() {
   // your code goes here
+  let arr = [];
+  got.houses.forEach((person)=>{
+    let peopleName= person.people.map((person1)=>{
+     return person1.name
+    })
+    arr = arr.concat(peopleName)
+  })
+  return arr
 }
 
 function nameWithS() {
   // your code goes here
+  
+  let listS = everyone().filter((person)=>{
+    return person.includes('s')||person.includes(`S`)
+  })
+  return listS
 }
 
 function nameWithA() {
   // your code goes here
+  
+  let listS = everyone().filter((person)=>{
+    return person.includes('a')||person.includes(`A`)
+  })
+  return listS
 }
 
 function surnameWithS() {
   // your code goes here
+
+  return everyone().filter((p)=>{
+  return p.split(' ')[1].startsWith('S')
+    
+  })
+
 }
+
+
 
 function surnameWithA() {
   // your code goes here
+  return everyone().filter((p)=>{
+    return p.split(' ')[1].startsWith('A')
+      
+    })
+  
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  let final={}
+ got.houses.map((house)=>{
+  final[house.name]=house.people
+})
+  return final
 }
+
 
 // Testing your result after writing your function
 console.log(countAllPeople());
