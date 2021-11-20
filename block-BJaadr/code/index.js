@@ -2,34 +2,99 @@
 
 function countAllPeople() {
   // your code goes here
+  let peopleCount = got.houses.reduce((acc,cv)=>{
+    acc =  cv.people.length + acc
+    
+    return acc
+  },0)
+  return peopleCount
 }
 
 function peopleByHouses() {
   // your code goes here
-}
+  return got.houses.reduce((acc,cv)=>{
+   acc[cv.name]=cv.people.length
+    return acc
+  },{})
+  
+};
 
 function everyone() {
   // your code goes here
+ return got.houses.reduce((acc,cv)=>{
+   acc =acc.concat(cv.people.map((person)=>person.name))
+  return acc
+ },[]) 
+ 
 }
 
 function nameWithS() {
   // your code goes here
+  /*
+  let listS= got.houses.reduce((acc,cv)=>{
+    acc =acc.concat(cv.people.map((person)=>
+      person.name)).filter((person)=> person.toLowerCase().includes(`s`))
+   return acc
+  },[]) 
+  return listS */
+  
+  return everyone().map((person)=>
+    person).filter((person)=> person.toLowerCase().includes(`s`))
+  
 }
 
 function nameWithA() {
   // your code goes here
+  /*
+  let listS= got.houses.reduce((acc,cv)=>{
+    acc =acc.concat(cv.people.map((person)=>
+      person.name)).filter((person)=> person.toLowerCase().includes(`a`))
+   return acc
+  },[]) 
+  return listS */
+  
+  return everyone().map((person)=>
+    person).filter((person)=> person.toLowerCase().includes(`a`))
+  
 }
 
 function surnameWithS() {
   // your code goes here
+  /*
+  let listS= got.houses.reduce((acc,cv)=>{
+    acc =acc.concat(cv.people.map((person)=>
+      person.name)).filter((person)=> person.split(" ")[1].includes(`S`))
+   return acc
+  },[]) 
+  return listS 
+  */
+  return everyone().map((person)=>
+    person).filter((person)=> person.split(" ")[1].includes(`S`))
+  
 }
 
 function surnameWithA() {
   // your code goes here
+  /*
+  let listS= got.houses.reduce((acc,cv)=>{
+    acc =acc.concat(cv.people.map((person)=>
+      person.name)).filter((person)=> person.split(" ")[1].includes(`A`))
+   return acc
+  },[]) 
+  return listS 
+  */
+  return everyone().map((person)=>
+    person).filter((person)=> person.split(" ")[1].includes(`A`))
+  
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  return got.houses.reduce((acc,cv)=>{
+    acc[cv.name]=cv.people.map((person)=>person.name)
+     return acc
+   },{})
+   
 }
 
 // Testing your result after writing your function
